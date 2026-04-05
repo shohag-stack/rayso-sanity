@@ -1,0 +1,8 @@
+export const niches = [
+  { emoji: "🏠", name: "Real Estate Agents & Teams", desc: "IDX property search integration, neighborhood landing pages, seller & buyer lead funnels, and agent bios that build trust before the first showing.", tags: ["IDX Integration", "Lead Funnels", "Local SEO"] },
+  { emoji: "💰", name: "Mortgage Brokers & Lenders", desc: "Compliance-aware design, mortgage calculator tools, rate landing pages, and clear CTAs that turn rate shoppers into loan applications.", tags: ["Calculators", "NMLS Compliance", "Rate Pages"] },
+  { emoji: "🔧", name: "Plumbing & HVAC Companies", desc: "Emergency call CTAs above the fold, service area pages for every city, before/after galleries, and Google review integration for instant trust.", tags: ["Emergency CTA", "Service Areas", "Reviews"] },
+  { emoji: "🧹", name: "Cleaning & Maid Services", desc: "Online booking integration, service package pricing tables, recurring client portals, and trust badges that convert first visits into weekly customers.", tags: ["Online Booking", "Pricing Tables", "Client Portal"] },
+  { emoji: "🌿", name: "Landscaping & Lawn Care", desc: "Seasonal service pages, before/after project galleries, instant quote forms, and local landing pages that dominate 'near me' searches all year.", tags: ["Quote Forms", "Galleries", "'Near Me' SEO"] },
+  { emoji: "🏗️", name: "Contractors & Builders", desc: "Project portfolio showcases, credentialing pages, permit transparency, and quote request flows that pre-qualify leads automatically.", tags: ["Portfolio CMS", "Lead Qualification", "Reviews"] },
+];

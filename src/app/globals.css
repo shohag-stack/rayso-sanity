@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── FONT VARS ─── */
+:root {
+  --font-syne: 'inter', sans-serif;
+  --font-dm-mono: 'inter', sans-serif;
+}
+
+/* ─── DARK MODE TOKENS (default) ─── */
+:root,
+.dark {
+  --acid-dim: rgba(123, 255, 0, 0.10);
+  --acid-border: rgba(123, 255, 0, 0.22);
+  --bg: #080808;
+  --bg-2: #0f0f0f;
+  --bg-3: #161616;
+  --bg-4: #1e1e1e;
+  --surface: #111111;
+  --border-color: rgba(255, 255, 255, 0.07);
+  --border-h: rgba(255, 255, 255, 0.13);
+  --muted: #6b6b6b;
+  --mid: #999999;
+  --text-primary: #f0f0f0;
+  --nav-bg: rgba(8, 8, 8, 0.85);
+  --scrollbar-track: #080808;
+  --code-bg: #0a0a0a;
+}
+
+/* ─── LIGHT MODE TOKENS ─── */
+.light {
+  --acid-dim: rgba(80, 180, 0, 0.10);
+  --acid-border: rgba(80, 180, 0, 0.28);
+  --bg: #f5f5f5;
+  --bg-2: #ffffff;
+  --bg-3: #ebebeb;
+  --bg-4: #e0e0e0;
+  --bg-primary: #7BFF00;
+  --surface: #fafafa;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-h: rgba(0, 0, 0, 0.15);
+  --muted: #888888;
+  --mid: #555555;
+  --text-primary: #111111;
+  --nav-bg: rgba(245, 245, 245, 0.88);
+  --scrollbar-track: #f5f5f5;
+  --code-bg: #f0f0f0;
+}
+
+/* ─── BODY ─── */
+body {
+  background-color: var(--bg);
+  color: var(--text-primary);
+}
+
+/* ─── SELECTION ─── */
+::selection {
+  background: #7BFF00;
+  color: #000;
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7BFF00;
+  border-radius: 2px;
+}
+
+/* ─── LIGHT ACID ADJUSTMENTS ─── */
+.light .text-acid {
+  color: #4a9e00;
+}
+
+/* ─── SMOOTH THEME TRANSITION ─── */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+
+/* Don't transition animations */
+.animate-ticker,
+[class*="animate-"] {
+  transition: none !important;
+}
+
+/* ─── FONT UTILITIES ─── */
+@layer utilities {
+  .font-display {
+    font-family: var(--font-syne), sans-serif;
+  }
+
+  .font-body {
+    font-family: var(--font-dm-mono), monospace;
+  }
+
+  .font-serif {
+    font-family: var(--font-instrument), serif;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+
+
+.scene {
+  width: 500px;
+  height: 320px;
+  position: relative;
+  perspective: 1400px;
+}
+
+.carousel {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.carousel__cell {
+  position: absolute;
+  width: 420px;
+  height: 260px;
+  left: 50%;
+  top: 50%;
+  border-radius: 16px;
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* media inside cards */
+.carousel__cell img,
+.carousel__cell video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes isoScrollDown {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-50%);
+  }
+}
