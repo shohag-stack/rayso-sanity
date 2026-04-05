@@ -522,7 +522,9 @@ export default function ReviewSlider() {
 export default function ComponentsPage() {
   const [activeCategory, setActiveCategory] = useState("heroes");
   const [search, setSearch] = useState("");
-  const [modal, setModal] = useState<{ name: string; code: string } | null>(null);
+  const [modal, setModal] = useState<{ name: string; code: string } | null>(
+    null,
+  );
   const [copied, setCopied] = useState(false);
 
   const filtered = components.filter((c) => {
@@ -538,7 +540,7 @@ export default function ComponentsPage() {
     ? components.filter(
         (c) =>
           c.name.toLowerCase().includes(search.toLowerCase()) ||
-          c.meta.toLowerCase().includes(search.toLowerCase())
+          c.meta.toLowerCase().includes(search.toLowerCase()),
       )
     : filtered;
 
@@ -567,30 +569,68 @@ export default function ComponentsPage() {
                 <h1 className="font-display font-black text-[clamp(48px,6vw,88px)] leading-[0.96] tracking-[-0.04em] mb-4">
                   Copy. Paste.
                   <br />
-                  <span className="font-serif italic font-normal text-acid">Ship faster.</span>
+                  <span className="font-serif italic font-normal text-acid">
+                    Ship faster.
+                  </span>
                 </h1>
                 <p className="text-muted text-[15px] font-body leading-[1.8] max-w-[440px]">
-                  Production-ready JSX components designed for local service business websites. No signup, no paywall, no BS.
+                  Production-ready JSX components designed for local service
+                  business websites. No signup, no paywall, no BS.
                 </p>
                 <div className="flex gap-10 mt-9 pt-9 border-t border-white/[0.07]">
-                  {[["80+","Components"],["12","Categories"],["∞","Free Forever"]].map(([n,l]) => (
+                  {[
+                    ["80+", "Components"],
+                    ["12", "Categories"],
+                    ["∞", "Free Forever"],
+                  ].map(([n, l]) => (
                     <div key={l}>
-                      <div className="font-display font-black text-[40px] leading-none tracking-[-0.03em] text-acid">{n}</div>
-                      <div className="text-[11px] text-muted font-body mt-1">{l}</div>
+                      <div className="font-display font-black text-[40px] leading-none tracking-[-0.03em] text-acid">
+                        {n}
+                      </div>
+                      <div className="text-[11px] text-muted font-body mt-1">
+                        {l}
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
               <div className="bg-bg-3 border border-white/[0.07] rounded-xl p-6 font-body text-[12px] leading-[2.2] text-muted">
-                <div className="text-muted/60 mb-2">{"// QuoteRequestForm.tsx — copy and paste"}</div>
-                <div><span className="text-purple-400">export default function </span><span className="text-pink-400">QuoteRequestForm</span>{"() {"}</div>
-                <div className="pl-4"><span className="text-purple-400">const </span>[sent, setSent] = <span className="text-purple-400">useState</span>(false)</div>
-                <div className="pl-4"><span className="text-purple-400">return</span> (</div>
-                <div className="pl-8"><span className="text-blue-400">{"<form"}</span> <span className="text-orange-300">onSubmit</span>={"{handleSubmit}"}<span className="text-blue-400">{">"}</span></div>
-                <div className="pl-12"><span className="text-blue-400">{"<button"}</span> <span className="text-orange-300">type</span>=<span className="text-green-400">&quot;submit&quot;</span><span className="text-blue-400">{">"}</span></div>
+                <div className="text-muted/60 mb-2">
+                  {"// QuoteRequestForm.tsx — copy and paste"}
+                </div>
+                <div>
+                  <span className="text-purple-400">
+                    export default function{" "}
+                  </span>
+                  <span className="text-pink-400">QuoteRequestForm</span>
+                  {"() {"}
+                </div>
+                <div className="pl-4">
+                  <span className="text-purple-400">const </span>[sent, setSent]
+                  = <span className="text-purple-400">useState</span>(false)
+                </div>
+                <div className="pl-4">
+                  <span className="text-purple-400">return</span> (
+                </div>
+                <div className="pl-8">
+                  <span className="text-blue-400">{"<form"}</span>{" "}
+                  <span className="text-orange-300">onSubmit</span>=
+                  {"{handleSubmit}"}
+                  <span className="text-blue-400">{">"}</span>
+                </div>
+                <div className="pl-12">
+                  <span className="text-blue-400">{"<button"}</span>{" "}
+                  <span className="text-orange-300">type</span>=
+                  <span className="text-green-400">&quot;submit&quot;</span>
+                  <span className="text-blue-400">{">"}</span>
+                </div>
                 <div className="pl-16 text-acid">{"Get Free Quote →"}</div>
-                <div className="pl-12"><span className="text-blue-400">{"</button>"}</span></div>
-                <div className="pl-8"><span className="text-blue-400">{"</form>"}</span></div>
+                <div className="pl-12">
+                  <span className="text-blue-400">{"</button>"}</span>
+                </div>
+                <div className="pl-8">
+                  <span className="text-blue-400">{"</form>"}</span>
+                </div>
                 <div className="pl-4">{")"}</div>
                 <div>{"}"}</div>
               </div>
@@ -626,7 +666,10 @@ export default function ComponentsPage() {
                 {cats.map((c) => (
                   <button
                     key={c.id}
-                    onClick={() => { setActiveCategory(c.id); setSearch(""); }}
+                    onClick={() => {
+                      setActiveCategory(c.id);
+                      setSearch("");
+                    }}
                     className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-[12px] font-body transition-all duration-200 ${
                       activeCategory === c.id && !search
                         ? "bg-acid-dim text-acid border border-acid-border"
@@ -646,7 +689,11 @@ export default function ComponentsPage() {
           {/* Main */}
           <main className="flex-1 p-10">
             <div className="text-[10px] font-display font-bold tracking-[0.12em] uppercase text-muted pb-4 border-b border-white/[0.07] mb-7">
-              {search ? `Search results for "${search}"` : `${categories.find(c => c.id === activeCategory)?.label} — ${categories.find(c => c.id === activeCategory)?.count} components`}
+              {search
+                ? `Search results for "${search}"`
+                : `${categories.find((c) => c.id === activeCategory)
+                    ?.label} — ${categories.find((c) => c.id === activeCategory)
+                    ?.count} components`}
             </div>
 
             {displayed.length === 0 ? (
@@ -666,7 +713,9 @@ export default function ComponentsPage() {
                         Preview
                       </span>
                       <button
-                        onClick={() => setModal({ name: comp.name, code: comp.code })}
+                        onClick={() =>
+                          setModal({ name: comp.name, code: comp.code })
+                        }
                         className="absolute top-2 right-2 px-3 py-1.5 rounded-full bg-acid text-black text-[10px] font-display font-bold tracking-wider uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-white"
                       >
                         Copy JSX
@@ -677,8 +726,12 @@ export default function ComponentsPage() {
                     {/* Info */}
                     <div className="px-5 py-4 flex items-center justify-between">
                       <div>
-                        <div className="font-display font-bold text-[13px] text-white">{comp.name}</div>
-                        <div className="text-[10px] text-muted font-body mt-0.5">{comp.meta}</div>
+                        <div className="font-display font-bold text-[13px] text-white">
+                          {comp.name}
+                        </div>
+                        <div className="text-[10px] text-muted font-body mt-0.5">
+                          {comp.meta}
+                        </div>
                       </div>
                       <span className="px-3 py-1 rounded-full text-[10px] font-body bg-acid-dim text-acid border border-acid-border">
                         Free
@@ -695,11 +748,15 @@ export default function ComponentsPage() {
         {modal && (
           <div
             className="fixed inset-0 z-[2000] bg-black/80 backdrop-blur-xl flex items-center justify-center p-6"
-            onClick={(e) => { if (e.target === e.currentTarget) setModal(null); }}
+            onClick={(e) => {
+              if (e.target === e.currentTarget) setModal(null);
+            }}
           >
             <div className="bg-bg-2 border border-white/[0.07] rounded-xl w-full max-w-3xl max-h-[80vh] overflow-hidden flex flex-col">
               <div className="flex items-center justify-between px-5 py-4 border-b border-white/[0.07]">
-                <span className="font-display font-bold text-[14px] text-white">{modal.name}.tsx</span>
+                <span className="font-display font-bold text-[14px] text-white">
+                  {modal.name}.tsx
+                </span>
                 <div className="flex gap-2">
                   <button
                     onClick={copyCode}
@@ -769,10 +826,27 @@ function CompPreview({ id }: { id: string }) {
     PricingTable3Col: (
       <div className="w-full grid grid-cols-3 gap-1.5">
         {[false, true, false].map((hot, i) => (
-          <div key={i} className={`p-2 rounded-lg border ${hot ? "bg-[#7BFF00] border-[#7BFF00]" : "bg-[#111] border-[#1a1a1a]"}`}>
-            <div className={`h-1 rounded w-[60%] mb-1 ${hot ? "bg-black/20" : "bg-[#1a1a1a]"}`} />
-            <div className={`h-2 rounded w-[40%] mb-1.5 ${hot ? "bg-black/20" : "bg-[#222]"}`} />
-            <div className={`h-4 rounded ${hot ? "bg-black/30" : "bg-[#1a1a1a]"}`} />
+          <div
+            key={i}
+            className={`p-2 rounded-lg border ${
+              hot
+                ? "bg-[#7BFF00] border-[#7BFF00]"
+                : "bg-[#111] border-[#1a1a1a]"
+            }`}
+          >
+            <div
+              className={`h-1 rounded w-[60%] mb-1 ${
+                hot ? "bg-black/20" : "bg-[#1a1a1a]"
+              }`}
+            />
+            <div
+              className={`h-2 rounded w-[40%] mb-1.5 ${
+                hot ? "bg-black/20" : "bg-[#222]"
+              }`}
+            />
+            <div
+              className={`h-4 rounded ${hot ? "bg-black/30" : "bg-[#1a1a1a]"}`}
+            />
           </div>
         ))}
       </div>
@@ -780,9 +854,22 @@ function CompPreview({ id }: { id: string }) {
     ServicePackages: (
       <div className="w-full flex flex-col gap-1.5">
         {[false, true, false].map((hot, i) => (
-          <div key={i} className={`flex items-center justify-between px-3 py-2 rounded-lg border ${hot ? "border-[#7BFF00] bg-acid-dim" : "border-[#1a1a1a] bg-[#111]"}`}>
-            <div className={`h-1 rounded w-[40%] ${hot ? "bg-acid" : "bg-[#222]"}`} />
-            <div className={`h-4 w-10 rounded-full ${hot ? "bg-acid" : "bg-[#1a1a1a]"}`} />
+          <div
+            key={i}
+            className={`flex items-center justify-between px-3 py-2 rounded-lg border ${
+              hot
+                ? "border-[#7BFF00] bg-acid-dim"
+                : "border-[#1a1a1a] bg-[#111]"
+            }`}
+          >
+            <div
+              className={`h-1 rounded w-[40%] ${hot ? "bg-acid" : "bg-[#222]"}`}
+            />
+            <div
+              className={`h-4 w-10 rounded-full ${
+                hot ? "bg-acid" : "bg-[#1a1a1a]"
+              }`}
+            />
           </div>
         ))}
       </div>
@@ -802,9 +889,16 @@ function CompPreview({ id }: { id: string }) {
       <div className="w-full p-3 bg-[#090909] border border-[#1a1a1a] rounded-lg">
         <div className="h-1 rounded bg-[#1a1a1a] w-[50%] mb-2" />
         <div className="grid grid-cols-7 gap-1 mb-2">
-          {Array(21).fill(0).map((_, i) => (
-            <div key={i} className={`h-4 rounded ${i === 8 ? "bg-[#7BFF00]" : "bg-[#111]"}`} />
-          ))}
+          {Array(21)
+            .fill(0)
+            .map((_, i) => (
+              <div
+                key={i}
+                className={`h-4 rounded ${
+                  i === 8 ? "bg-[#7BFF00]" : "bg-[#111]"
+                }`}
+              />
+            ))}
         </div>
         <div className="h-5 rounded bg-[#7BFF00] opacity-90" />
       </div>
@@ -812,23 +906,36 @@ function CompPreview({ id }: { id: string }) {
     ReviewSlider: (
       <div className="w-full p-3 bg-[#090909] border border-[#1a1a1a] rounded-lg">
         <div className="flex gap-0.5 mb-2">
-          {Array(5).fill(0).map((_, i) => <span key={i} className="text-[#7BFF00] text-xs">★</span>)}
+          {Array(5)
+            .fill(0)
+            .map((_, i) => (
+              <span key={i} className="text-[#7BFF00] text-xs">
+                ★
+              </span>
+            ))}
         </div>
         <div className="h-1 rounded bg-[#1a1a1a] w-full mb-1" />
         <div className="h-1 rounded bg-[#1a1a1a] w-[80%] mb-1" />
         <div className="h-1 rounded bg-[#1a1a1a] w-[60%] mb-3" />
         <div className="flex justify-center gap-1.5">
           {[true, false, false].map((a, i) => (
-            <div key={i} className={`h-1.5 rounded-full bg-[#7BFF00] transition-all ${a ? "w-5" : "w-1.5 opacity-40"}`} />
+            <div
+              key={i}
+              className={`h-1.5 rounded-full bg-[#7BFF00] transition-all ${
+                a ? "w-5" : "w-1.5 opacity-40"
+              }`}
+            />
           ))}
         </div>
       </div>
     ),
   };
 
-  return previews[id] || (
-    <div className="w-full p-4 bg-bg-3 border border-white/[0.07] rounded-lg flex items-center justify-center text-muted text-[12px] font-body">
-      Preview coming soon
-    </div>
+  return (
+    previews[id] || (
+      <div className="w-full p-4 bg-bg-3 border border-white/[0.07] rounded-lg flex items-center justify-center text-muted text-[12px] font-body">
+        Preview coming soon
+      </div>
+    )
   );
 }

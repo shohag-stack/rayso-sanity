@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useEffect, useRef } from "react";
 
 export default function Hero() {
-  const carouselRef = useRef(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   // 🔥 Replace with your real dribbble shots later
   const items = [
