@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef } from "react";
 
@@ -145,7 +146,7 @@ export default function Hero() {
                   {item.type === "video" ? (
                     <video src={item.src} autoPlay loop muted playsInline />
                   ) : (
-                    <img src={item.src} alt="" />
+                    <Image src={item.src} alt="" width={800} height={400} />
                   )}
                 </div>
               );

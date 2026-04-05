@@ -587,7 +587,7 @@ export default function ComponentsPage() {
                 <div className="pl-4"><span className="text-purple-400">const </span>[sent, setSent] = <span className="text-purple-400">useState</span>(false)</div>
                 <div className="pl-4"><span className="text-purple-400">return</span> (</div>
                 <div className="pl-8"><span className="text-blue-400">{"<form"}</span> <span className="text-orange-300">onSubmit</span>={"{handleSubmit}"}<span className="text-blue-400">{">"}</span></div>
-                <div className="pl-12"><span className="text-blue-400">{"<button"}</span> <span className="text-orange-300">type</span>=<span className="text-green-400">"submit"</span><span className="text-blue-400">{">"}</span></div>
+                <div className="pl-12"><span className="text-blue-400">{"<button"}</span> <span className="text-orange-300">type</span>=<span className="text-green-400">&quot;submit&quot;</span><span className="text-blue-400">{">"}</span></div>
                 <div className="pl-16 text-acid">{"Get Free Quote →"}</div>
                 <div className="pl-12"><span className="text-blue-400">{"</button>"}</span></div>
                 <div className="pl-8"><span className="text-blue-400">{"</form>"}</span></div>
