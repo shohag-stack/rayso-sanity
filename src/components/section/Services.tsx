@@ -21,7 +21,7 @@ export default function Services() {
               <span className="font-serif italic font-normal text-acid">
                 under one roof
               </span>
-            </h2>
+            </h2> 
           </div>
           <p
             className="max-w-[340px] text-base font-body leading-[1.8]"
@@ -38,8 +38,8 @@ export default function Services() {
         >
           {services.map((s, i) => (
             <div
-              key={s.num}
-              className="group p-10 transition-colors duration-200 cursor-default border-b border-r"
+              key={s.id}
+              className="group p-4 sm:p-10 transition-colors duration-200 cursor-default border-b border-r"
               style={{
                 background: "var(--bg-2)",
                 borderColor: "var(--border-color)",
@@ -49,10 +49,16 @@ export default function Services() {
                 className="font-display text-[10px] font-bold tracking-[0.15em] uppercase mb-6 group-hover:text-acid transition-colors duration-200"
                 style={{ color: "var(--muted)" }}
               >
-                {s.num}
+                {s.id}
               </div>
-              <div className="w-full rounded-xl bg-acid-dim flex items-center justify-center text-xl mb-5">
-                <Image src={s.icon} alt={s.title} width={400} height={300} />
+              <div className="w-full h-[300] rounded-xl bg-acid-dim flex items-center justify-center text-xl mb-5 overflow-hidden">
+                {
+                  s.type === "image" ? (
+                    <Image src={s.icon} alt={s.title} width={400} height={300} />
+                  ) : (
+                    <video className="w-full h-[300]" src={s.icon} autoPlay loop muted />
+                  )
+                }
               </div>
               <h3
                 className="font-display font-bold text-[20px] tracking-[-0.01em] mb-3"

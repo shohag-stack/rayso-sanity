@@ -24,11 +24,11 @@ export default function Hero() {
   return (
     <>
       <section
-        className="relative min-h-screen container mx-auto overflow-hidden"
+        className="relative min-h-screen container mx-auto overflow-hidden flex flex-col lg:flex-row"
         style={{ background: "var(--bg)" }}
       >
         {/* ── LEFT: copy ── */}
-        <div className="relative z-10 w-1/2 flex flex-col justify-center px-12 md:px-0 pt-28 pb-20 flex-shrink-0">
+        <div className="relative z-10 w-full lg:w-1/2 flex flex-col justify-center px-6 md:px-12 pt-24 pb-16">
           <div className="flex items-center gap-4 mb-8">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-acid-dim border border-acid-border text-[10px] font-body tracking-[0.1em] uppercase text-acid animate-pulse-border">
               <span className="w-1.5 h-1.5 rounded-full bg-acid animate-pulse" />
@@ -77,7 +77,7 @@ export default function Hero() {
           </div>
 
           <div
-            className="flex items-center gap-5 pt-8 border-t"
+            className="flex flex-col lg:flex-row justify-start lg:items-center gap-5 pt-8 border-t"
             style={{ borderColor: "var(--border-color)" }}
           >
             <div className="flex">
@@ -107,7 +107,7 @@ export default function Hero() {
         </div>
 
         {/* ── RIGHT: isometric Dribbble grid ── */}
-        <div className="absolute right-0 top-0 bottom-0 w-1/2 overflow-hidden">
+        <div className="relative lg:absolute right-0 top-0 bottom-0 w-full lg:w-1/2 overflow-hidden mt-10 lg:mt-0">
           <div
             style={{
               position: "absolute",
@@ -140,28 +140,28 @@ export default function Hero() {
         {/* ── Fade masks ── */}
         {/* Left edge — blends grid into text */}
         <div
-          className="absolute inset-y-0 right-0 w-1/2 pointer-events-none z-10"
+          className="absolute inset-y-0 right-0 w-1/2 pointer-events-none z-10 hidden lg:block"
           style={{
             background: `linear-gradient(to right, var(--bg) 0%, var(--bg) 4%, transparent 22%)`,
           }}
         />
         {/* Top fade */}
         <div
-          className="absolute inset-x-0 top-0 h-48 pointer-events-none z-10"
+          className="absolute inset-x-0 top-0 h-48 pointer-events-none z-10 hidden lg:block"
           style={{
             background: `linear-gradient(to bottom, var(--bg) 0%, transparent 100%)`,
           }}
         />
         {/* Bottom fade */}
         <div
-          className="absolute inset-x-0 bottom-0 h-48 pointer-events-none z-10"
+          className="absolute inset-x-0 bottom-0 h-48 pointer-events-none z-10 hidden lg:block"
           style={{
             background: `linear-gradient(to top, var(--bg) 0%, transparent 100%)`,
           }}
         />
         {/* Right edge fade */}
         <div
-          className="absolute inset-y-0 right-0 w-32 pointer-events-none z-10"
+          className="absolute inset-y-0 right-0 w-32 pointer-events-none z-10 hidden lg:block"
           style={{
             background: `linear-gradient(to left, var(--bg) 0%, transparent 100%)`,
           }}

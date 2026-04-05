@@ -19,7 +19,7 @@ export default function Niches() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {niches.map((n) => (
-                <div key={n.name} className="group border rounded-xl p-8 transition-all duration-200 cursor-default hover:border-acid-border" style={{ background: "var(--bg-2)", borderColor: "var(--border-color)" }}>
+                <div key={n.name} className="group border rounded-xl p-4 sm:p-8 transition-all duration-200 cursor-default hover:border-acid-border" style={{ background: "var(--bg-2)", borderColor: "var(--border-color)" }}>
                   <div className="text-[32px] mb-4">{n.emoji}</div>
                   <h3 className="font-display font-bold text-xl mb-2.5" style={{ color: "var(--text-primary)" }}>{n.name}</h3>
                   <p className="text-base font-body leading-[1.7] mb-4" style={{ color: "var(--muted)" }}>{n.desc}</p>

@@ -1,8 +1,8 @@
 export const services = [
-  { num: "01", icon: "/assets/img/UIUX.png", title: "Web Design & UI/UX", desc: "We research your market, analyze competitors, and design interfaces that guide visitors toward one goal: contacting you. Every pixel earns its place." },
-  { num: "02", icon: "/assets/img/UIUX.png", title: "Framer Development", desc: "Stunning, animated websites built in Framer. Best-in-class performance with beautiful motion design and flexible CMS built for non-developers." },
-  { num: "03", icon: "/assets/img/UIUX.png", title: "Webflow Development", desc: "Enterprise-grade Webflow builds with custom interactions, CMS collections, and SEO structure baked in. Scale your content without touching code." },
-  { num: "04", icon: "/assets/img/UIUX.png", title: "Custom Development", desc: "When off-the-shelf tools aren't enough — bespoke web apps, booking systems, property search, and client portals built with Next.js & React." },
-  { num: "05", icon: "/assets/img/UIUX.png", title: "Sanity CMS Integration", desc: "Own your content. We build and configure Sanity Studios tailored to your workflow — easy editing for your team, structured data for your devs." },
-  { num: "06", icon: "/assets/img/UIUX.png", title: "CRO & SEO Strategy", desc: "Beautiful websites that don't rank are billboards in the desert. We optimize for Google, Core Web Vitals, and conversion so traffic turns to revenue." },
+  { id: "01", icon: "/assets/img/UIUX.png", type: "image", title: "Web Design & UI/UX", desc: "We research your market, analyze competitors, and design interfaces that guide visitors toward one goal: contacting you. Every pixel earns its place." },
+  { id: "02", icon: "/assets/img/framer.png", type: "image", title: "Framer Development", desc: "Stunning, animated websites built in Framer. Best-in-class performance with beautiful motion design and flexible CMS built for non-developers." },
+  { id: "03", icon: "/assets/img/webflow.png", type: "image", title: "Webflow Development", desc: "Enterprise-grade Webflow builds with custom interactions, CMS collections, and SEO structure baked in. Scale your content without touching code." },
+  { id: "04", icon: "/assets/img/custom.png", type: "image", title: "Custom Development", desc: "When off-the-shelf tools aren't enough — bespoke web apps, booking systems, property search, and client portals built with Next.js & React." },
+  { id: "05", icon: "/assets/img/cms.png", type: "image", title: "Sanity CMS Integration", desc: "Own your content. We build and configure Sanity Studios tailored to your workflow — easy editing for your team, structured data for your devs." },
+  { id: "06", icon: "/assets/img/gspeed.png", type: "image", title: "CRO & SEO Strategy", desc: "Beautiful websites that don't rank are billboards in the desert. We optimize for Google, Core Web Vitals, and conversion so traffic turns to revenue." },
 ];

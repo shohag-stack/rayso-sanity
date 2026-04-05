@@ -17,7 +17,7 @@ export default function Process() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border rounded-xl overflow-hidden" style={{ borderColor: "var(--border-color)" }}>
               {steps.map((s) => (
-                <div key={s.num} className="p-12 border-r border-b" style={{ background: "var(--bg-2)", borderColor: "var(--border-color)" }}>
+                <div key={s.num} className="p-4 sm:p-12 border-r border-b" style={{ background: "var(--bg-2)", borderColor: "var(--border-color)" }}>
                   <div className="font-display font-black text-[72px] leading-none tracking-[-0.04em] mb-6" style={{ color: "var(--bg-4)" }}>{s.num}</div>
                   <h3 className="font-display font-bold text-xl mb-3" style={{ color: "var(--text-primary)" }}>{s.title}</h3>
                   <p className="text-base font-body leading-[1.7]" style={{ color: "var(--muted)" }}>{s.desc}</p>
