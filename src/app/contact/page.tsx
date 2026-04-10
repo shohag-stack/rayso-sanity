@@ -28,7 +28,7 @@ export default function ContactPage() {
             <div className="flex items-center gap-2 text-[10px] font-body tracking-[0.18em] uppercase text-acid mb-5">
               <span className="w-5 h-px bg-acid" />Get in Touch
             </div>
-            <h1 className="font-display font-black text-[clamp(48px,6vw,88px)] leading-[0.96] tracking-[-0.04em] mb-5" style={{ color: "var(--text-primary)" }}>
+            <h1 className="font-display font-bold text-[clamp(48px,6vw,88px)] leading-[0.96] tracking-[-0.04em] mb-5" style={{ color: "var(--text-primary)" }}>
               Let&apos;s talk about<br />
               <span className="font-serif italic font-normal text-acid">your business</span>
             </h1>

@@ -25,7 +25,7 @@ export default function AboutStats() {
                 borderColor: "var(--border-color)",
               }}
             >
-              <div className="font-display font-black text-[clamp(36px,4vw,56px)] leading-none tracking-[-0.03em] text-acid mb-1">
+              <div className="font-display font-bold text-[clamp(36px,4vw,56px)] leading-none tracking-[-0.03em] text-acid mb-1">
                 {n}
               </div>
               <div

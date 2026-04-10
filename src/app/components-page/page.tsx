@@ -4,6 +4,7 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Ticker from "@/components/Ticker";
+import Image from "next/image";
 
 const categories = [
   { id: "heroes", label: "Hero Sections", count: 12 },
@@ -46,7 +47,7 @@ export default function HeroMinimal({
   return (
     <section className="min-h-screen flex items-center bg-[#080808] px-6 py-24">
       <div className="max-w-5xl mx-auto">
-        <h1 className="font-display font-black text-[clamp(52px,7vw,104px)] leading-[0.96] tracking-[-0.04em] text-white mb-6">
+        <h1 className="font-display font-bold text-[clamp(52px,7vw,104px)] leading-[0.96] tracking-[-0.04em] text-white mb-6">
           {title}
         </h1>
         <p className="text-lg text-neutral-400 mb-10 max-w-xl leading-relaxed font-body">
@@ -114,7 +115,7 @@ export default function EmergencyHero({
                         tracking-widest mb-4">
             {businessName}
           </p>
-          <h1 className="font-display font-black text-[clamp(48px,6vw,88px)]
+          <h1 className="font-display font-bold text-[clamp(48px,6vw,88px)]
                          text-white leading-none tracking-tight mb-6">
             {headline}
           </h1>
@@ -152,7 +153,7 @@ export default function EmergencyHero({
     <section className="min-h-screen grid md:grid-cols-2 bg-[#080808]">
       <div className="flex items-center px-12 py-24">
         <div>
-          <h1 className="font-display font-black text-5xl text-white
+          <h1 className="font-display font-bold text-5xl text-white
                          leading-tight mb-4 tracking-tight">
             Your Tagline <br />Goes Here
           </h1>
@@ -558,22 +559,38 @@ export default function ComponentsPage() {
     <>
       <main>
         {/* Hero */}
-        <section className="pt-36 pb-16 px-8 md:px-12 bg-bg-2 border-b border-white/[0.07]">
-          <div className="max-w-7xl mx-auto">
+        <section
+          className=" relative pt-36 pb-20 px-8 md:px-12 bg-cover"
+          style={{
+            backgroundImage: "url('assets/img/templates.png')",
+            backgroundPosition: "right",
+          }}
+        >
+          <div
+            className="absolute inset-0 pointer-events-none z-0"
+            style={{
+              background: `
+            radial-gradient(circle at left, var(--bg), transparent 150%),
+            linear-gradient(to right, var(--bg), transparent 150%)
+          `,
+            }}
+          />
+
+          <div className="max-w-7xl mx-auto relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
-                <div className="flex items-center gap-2 text-[10px] font-body tracking-[0.18em] uppercase text-acid mb-5">
+                <div className="flex items-center gap-2 text-base font-body tracking-[0.18em] uppercase text-acid mb-5">
                   <span className="w-5 h-px bg-acid" />
                   Free Component Library
                 </div>
-                <h1 className="font-display font-black text-[clamp(48px,6vw,88px)] leading-[0.96] tracking-[-0.04em] mb-4">
+                <h1 className="font-display font-bold text-6xl leading-[0.96] tracking-[-0.04em] mb-4">
                   Copy. Paste.
                   <br />
                   <span className="font-serif italic font-normal text-acid">
                     Ship faster.
                   </span>
                 </h1>
-                <p className="text-muted text-[15px] font-body leading-[1.8] max-w-[440px]">
+                <p className="text-muted text-base font-body leading-[1.8] max-w-[440px]">
                   Production-ready JSX components designed for local service
                   business websites. No signup, no paywall, no BS.
                 </p>
@@ -584,7 +601,7 @@ export default function ComponentsPage() {
                     ["∞", "Free Forever"],
                   ].map(([n, l]) => (
                     <div key={l}>
-                      <div className="font-display font-black text-[40px] leading-none tracking-[-0.03em] text-acid">
+                      <div className="font-display font-bold text-[40px] leading-none tracking-[-0.03em] text-acid">
                         {n}
                       </div>
                       <div className="text-[11px] text-muted font-body mt-1">
@@ -593,46 +610,6 @@ export default function ComponentsPage() {
                     </div>
                   ))}
                 </div>
-              </div>
-              <div className="bg-bg-3 border border-white/[0.07] rounded-xl p-6 font-body text-[12px] leading-[2.2] text-muted">
-                <div className="text-muted/60 mb-2">
-                  {"// QuoteRequestForm.tsx — copy and paste"}
-                </div>
-                <div>
-                  <span className="text-purple-400">
-                    export default function{" "}
-                  </span>
-                  <span className="text-pink-400">QuoteRequestForm</span>
-                  {"() {"}
-                </div>
-                <div className="pl-4">
-                  <span className="text-purple-400">const </span>[sent, setSent]
-                  = <span className="text-purple-400">useState</span>(false)
-                </div>
-                <div className="pl-4">
-                  <span className="text-purple-400">return</span> (
-                </div>
-                <div className="pl-8">
-                  <span className="text-blue-400">{"<form"}</span>{" "}
-                  <span className="text-orange-300">onSubmit</span>=
-                  {"{handleSubmit}"}
-                  <span className="text-blue-400">{">"}</span>
-                </div>
-                <div className="pl-12">
-                  <span className="text-blue-400">{"<button"}</span>{" "}
-                  <span className="text-orange-300">type</span>=
-                  <span className="text-green-400">&quot;submit&quot;</span>
-                  <span className="text-blue-400">{">"}</span>
-                </div>
-                <div className="pl-16 text-acid">{"Get Free Quote →"}</div>
-                <div className="pl-12">
-                  <span className="text-blue-400">{"</button>"}</span>
-                </div>
-                <div className="pl-8">
-                  <span className="text-blue-400">{"</form>"}</span>
-                </div>
-                <div className="pl-4">{")"}</div>
-                <div>{"}"}</div>
               </div>
             </div>
           </div>

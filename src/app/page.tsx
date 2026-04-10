@@ -20,7 +20,7 @@ export default function Home() {
         <Process />
         <Templates />
         <Components />
-        <TrustBar />
+        {/* <TrustBar /> */}
         <CTABanner />
       </main>
     </>

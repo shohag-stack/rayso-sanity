@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ThemeToggle from "./ThemeToggle";
 
 const footerCols = [
   {
@@ -46,13 +47,13 @@ export default function Footer() {
           {/* Brand col */}
           <div>
             <div
-              className="font-display font-black text-xl tracking-tight mb-4"
+              className="font-display font-bold text-xl tracking-tight mb-4"
               style={{ color: "var(--text-primary)" }}
             >
               rayso<span className="text-acid">.</span>studio
             </div>
             <p
-              className="text-sm leading-relaxed max-w-[280px] mb-7 font-body"
+              className="text-md leading-relaxed max-w-[280px] mb-7 font-body"
               style={{ color: "var(--muted)" }}
             >
               We build high-converting websites for local service businesses —
@@ -60,7 +61,7 @@ export default function Footer() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-acid text-black text-[11px] font-display font-bold tracking-[0.05em] uppercase hover:bg-white hover:text-black transition-colors duration-200"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-acid text-black text-md font-display font-medium tracking-[0.05em] uppercase hover:bg-white hover:text-black transition-colors duration-200"
             >
               Book a Free Call →
             </Link>
@@ -70,7 +71,7 @@ export default function Footer() {
           {footerCols.map((col) => (
             <div key={col.title}>
               <div
-                className="font-display text-[10px] font-bold tracking-[0.14em] uppercase mb-5"
+                className="font-display text-sm font-bold tracking-[0.14em] uppercase mb-5"
                 style={{ color: "var(--muted)" }}
               >
                 {col.title}
@@ -80,7 +81,7 @@ export default function Footer() {
                   <li key={l.label}>
                     <Link
                       href={l.href}
-                      className="text-[13px] font-body hover:text-acid transition-colors duration-200"
+                      className="text-md font-body hover:text-acid transition-colors duration-200"
                       style={{ color: "var(--mid)" }}
                     >
                       {l.label}
@@ -98,19 +99,22 @@ export default function Footer() {
           style={{ borderColor: "var(--border-color)" }}
         >
           <span
-            className="text-[11px] font-body"
+            className="text-sm font-body"
             style={{ color: "var(--muted)" }}
           >
             © 2025 rayso.studio — All rights reserved
           </span>
           <span
-            className="text-[11px] font-body"
+            className="text-sm font-body flex gap-4"
             style={{ color: "var(--muted)" }}
           >
             Designed &amp; built in-house ✦ Remote-first agency
+            {/* Theme Toggle */}
+        <ThemeToggle />
           </span>
         </div>
       </div>
+      
     </footer>
   );
 }

@@ -19,7 +19,7 @@ export default function WorkPage() {
         <section className="pt-36 pb-20 px-8 md:px-12 border-b" style={{ borderColor: "var(--border-color)" }}>
           <div className="max-w-7xl mx-auto">
             <div className="flex items-center gap-2 text-[10px] font-body tracking-[0.18em] uppercase text-acid mb-5"><span className="w-5 h-px bg-acid" />Portfolio</div>
-            <h1 className="font-display font-black text-[clamp(48px,6vw,88px)] leading-[0.96] tracking-[-0.04em] mb-5" style={{ color: "var(--text-primary)" }}>
+            <h1 className="font-display font-bold text-[clamp(48px,6vw,88px)] leading-[0.96] tracking-[-0.04em] mb-5" style={{ color: "var(--text-primary)" }}>
               Work that <span className="font-serif italic font-normal text-acid">converts</span>
             </h1>
             <p className="text-[15px] font-body leading-[1.8] max-w-[500px]" style={{ color: "var(--muted)" }}>Real projects. Real results. Every case study includes traffic, leads, and revenue metrics — because beautiful design that doesn&apos;t perform isn&apos;t design, it&apos;s decoration.</p>
@@ -52,7 +52,7 @@ export default function WorkPage() {
               </div>
               <div className="p-12 flex flex-col justify-center">
                 <div className="text-[10px] font-body tracking-[0.12em] uppercase text-acid mb-3">Featured Case Study · {featured.client}</div>
-                <h2 className="font-display font-black text-[clamp(28px,3vw,44px)] tracking-[-0.02em] mb-4" style={{ color: "var(--text-primary)" }}>{featured.name}</h2>
+                <h2 className="font-display font-bold text-[clamp(28px,3vw,44px)] tracking-[-0.02em] mb-4" style={{ color: "var(--text-primary)" }}>{featured.name}</h2>
                 <p className="text-[14px] font-body leading-[1.8] mb-6" style={{ color: "var(--muted)" }}>{featured.desc}</p>
                 <div className="flex flex-wrap gap-2 mb-6">
                   {featured.tags.map(t => <span key={t} className="px-2.5 py-1 rounded text-[10px] font-body border" style={{ background: "var(--bg-4)", color: "var(--muted)", borderColor: "var(--border-color)" }}>{t}</span>)}
@@ -60,7 +60,7 @@ export default function WorkPage() {
                 <div className="flex gap-6 pt-6 border-t" style={{ borderColor: "var(--border-color)" }}>
                   {featured.results.map(r => (
                     <div key={r.label}>
-                      <div className="font-display font-black text-[28px] leading-none tracking-[-0.03em] text-acid">{r.num}</div>
+                      <div className="font-display font-bold text-[28px] leading-none tracking-[-0.03em] text-acid">{r.num}</div>
                       <div className="text-[10px] font-body mt-1" style={{ color: "var(--muted)" }}>{r.label}</div>
                     </div>
                   ))}
@@ -97,7 +97,7 @@ export default function WorkPage() {
                     <div className="flex gap-6 pt-5 border-t" style={{ borderColor: "var(--border-color)" }}>
                       {c.results.map(r => (
                         <div key={r.label}>
-                          <div className="font-display font-black text-[22px] leading-none tracking-[-0.03em] text-acid">{r.num}</div>
+                          <div className="font-display font-bold text-[22px] leading-none tracking-[-0.03em] text-acid">{r.num}</div>
                           <div className="text-[10px] font-body mt-0.5" style={{ color: "var(--muted)" }}>{r.label}</div>
                         </div>
                       ))}

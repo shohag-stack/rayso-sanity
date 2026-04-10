@@ -33,7 +33,7 @@ export default function AboutPrinciple() {
             What We Stand For
           </div>
           <h2
-            className="font-display font-black text-[clamp(36px,4vw,60px)] leading-[1.05] tracking-[-0.025em]"
+            className="font-display font-bold text-[clamp(36px,4vw,60px)] leading-[1.05] tracking-[-0.025em]"
             style={{ color: "var(--text-primary)" }}
           >
             Our principles{" "}

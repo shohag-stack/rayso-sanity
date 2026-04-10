@@ -12,8 +12,8 @@
 :root,
 .dark {
   --acid-dim: rgba(123, 255, 0, 0.10);
-  --acid-border: rgba(123, 255, 0, 0.22);
-  --bg: #080808;
+  --acid-border: rgb(123, 255, 0);
+  --bg: #000000;
   --bg-2: #0f0f0f;
   --bg-3: #161616;
   --bg-4: #1e1e1e;
@@ -28,12 +28,15 @@
   --code-bg: #0a0a0a;
 }
 
+
+
+
 /* ─── LIGHT MODE TOKENS ─── */
 .light {
   --acid-dim: rgba(80, 180, 0, 0.10);
-  --acid-border: rgba(80, 180, 0, 0.28);
-  --bg: #f5f5f5;
-  --bg-2: #ffffff;
+  --acid-border: rgb(81, 180, 0);
+  --bg: #ffffff;
+  --bg-2: #f7f7f7;
   --bg-3: #ebebeb;
   --bg-4: #e0e0e0;
   --bg-primary: #7BFF00;
@@ -50,6 +53,7 @@
 
 /* ─── BODY ─── */
 body {
+  prefer-ligth-mode: light;
   background-color: var(--bg);
   color: var(--text-primary);
 }
@@ -76,7 +80,7 @@ body {
 
 /* ─── LIGHT ACID ADJUSTMENTS ─── */
 .light .text-acid {
-  color: #4a9e00;
+  color: rgb(74, 158, 0);
 }
 
 /* ─── SMOOTH THEME TRANSITION ─── */

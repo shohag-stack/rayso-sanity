@@ -55,7 +55,7 @@ export default function Hero() {
           </div>
 
           <h1
-            className="font-display font-black text-6xl leading-[0.96] tracking-[-0.04em] max-w-[1100px] mb-8"
+            className="font-display font-bold text-6xl leading-[0.96] tracking-[-0.04em] max-w-[1100px] mb-8"
             style={{ color: "var(--text-primary)" }}
           >
             Websites that

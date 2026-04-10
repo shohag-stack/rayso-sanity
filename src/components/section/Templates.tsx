@@ -10,7 +10,7 @@ export default function Templates() {
                 <div className="flex items-center gap-2 text-[10px] font-body tracking-[0.18em] uppercase text-acid mb-5">
                   <span className="w-5 h-px bg-acid" />Sanity Templates
                 </div>
-                <h2 className="font-display font-black text-[clamp(36px,4vw,60px)] leading-[1.05] tracking-[-0.025em]" style={{ color: "var(--text-primary)" }}>
+                <h2 className="font-display font-bold text-[clamp(36px,4vw,60px)] leading-[1.05] tracking-[-0.025em]" style={{ color: "var(--text-primary)" }}>
                   Launch faster with<br />
                   <span className="font-serif italic font-normal text-acid">our template library</span>
                 </h2>
