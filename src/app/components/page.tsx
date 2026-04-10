@@ -577,16 +577,14 @@ export default function ComponentsPage() {
           />
 
           <div className="max-w-7xl mx-auto relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div>
+            <div className="flex gap-16 items-center">
+              <div className="w-full">
                 <div className="flex items-center gap-2 text-base font-body tracking-[0.18em] uppercase text-acid mb-5">
                   <span className="w-5 h-px bg-acid" />
                   Free Component Library
                 </div>
                 <h1 className="font-display font-bold text-6xl leading-[0.96] tracking-[-0.04em] mb-4">
-                  Copy. Paste.
-                  <br />
-                  <span className="font-serif italic font-normal text-acid">
+                  Copy. Paste. <span className="font-serif italic font-normal text-acid">
                     Ship faster.
                   </span>
                 </h1>
@@ -594,7 +592,7 @@ export default function ComponentsPage() {
                   Production-ready JSX components designed for local service
                   business websites. No signup, no paywall, no BS.
                 </p>
-                <div className="flex gap-10 mt-9 pt-9 border-t border-white/[0.07]">
+                <div className="flex gap-10 mt-9">
                   {[
                     ["80+", "Components"],
                     ["12", "Categories"],
