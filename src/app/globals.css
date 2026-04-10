@@ -168,3 +168,28 @@ body {
     transform: translateY(-50%);
   }
 }
+
+.code-block {
+  counter-reset: line;
+}
+
+.code-block code {
+  display: grid;
+}
+
+.code-block .line {
+  display: inline-block;
+  width: 100%;
+  padding-left: 3.5rem;
+  position: relative;
+}
+
+.code-block .line::before {
+  counter-increment: line;
+  content: counter(line);
+  position: absolute;
+  left: 0;
+  width: 2.5rem;
+  text-align: right;
+  color: #4b5563;
+}

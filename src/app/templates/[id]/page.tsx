@@ -82,13 +82,11 @@ export default function TemplateSingle({ params }: { params: { id: string } }) {
                   </span>
                 </div>
 
-                <h1 className="font-display font-bold text-[clamp(40px,5vw,64px)] leading-none tracking-[-0.03em] mb-5">
+                <h1 className="font-display font-bold text-6xl leading-none tracking-[-0.03em] mb-5">
                   {t.name}
-                  <br />
-                  <span className="font-serif italic font-normal text-acid">Template</span>
                 </h1>
 
-                <p className="text-muted text-[15px] font-body leading-[1.8] max-w-[520px] mb-8">{t.desc}</p>
+                <p className="text-muted text-[15px] font-body leading-[1.8] mb-8">{t.desc}</p>
 
                 <div className="flex gap-3 flex-wrap mb-10">
                   <Link href="#" className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-acid text-black font-display font-bold text-[13px] tracking-[0.05em] uppercase hover:bg-white transition-colors duration-200">
@@ -108,6 +106,13 @@ export default function TemplateSingle({ params }: { params: { id: string } }) {
                   <div className="flex items-center gap-2 text-[12px] text-muted font-body">
                     📄 MIT License
                   </div>
+                </div>
+                {/* Gallery placeholder */}
+                <div className="gallery grid grid-cols-1 md:grid-cols-2 gap-4 mt-12">
+                  <div className="w-full h-[300px] bg-acid"> </div>
+                  <div className="w-full h-[300px] bg-acid"> </div>
+                  <div className="w-full h-[300px] bg-acid"> </div>
+                  <div className="w-full h-[300px] bg-acid"> </div>
                 </div>
               </div>
 
