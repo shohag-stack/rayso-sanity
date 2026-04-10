@@ -29,7 +29,7 @@ export default function Hero() {
       >
         <video
           className="absolute inset-0 w-full h-full object-cover z-0"
-          src="/assets/video/hero.mp4"
+          src="/assets/video/hero-3.mp4"
           autoPlay
           muted
           loop
