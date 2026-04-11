@@ -47,7 +47,7 @@ export default function ProductCard({ t }: { t: Template }) {
       {/* Info */}
       <div className="p-6">
         <div className="flex items-center gap-2 mb-3">
-          <span
+          {/* <span
             className={`px-3 py-1 rounded-full text-xs font-body uppercase tracking-wider border-acid-border ${
               t.badge === "free"
                 ? "bg-acid-dim text-acid border-acid-border"
@@ -55,15 +55,15 @@ export default function ProductCard({ t }: { t: Template }) {
             }`}
           >
             {t.badge === "free" ? "Free" : "Premium"}
-          </span>
-          {t.stack?.map((s) => (
-  <span
-    key={s}
-    className="px-2.5 py-1 text-xs font-mediu border-acid-dim border rounded-full"
-  >
-    {s}
-  </span>
-))}
+          </span> */}
+                    {t.stack?.map((s) => (
+            <span
+              key={s}
+              className="px-2.5 py-1 text-xs font-mediu border-acid-dim border rounded-full"
+            >
+              {s}
+            </span>
+          ))}
         </div>
         <h3 className="font-display font-bold text-xl text-primary mb-2">
           {t.name}
