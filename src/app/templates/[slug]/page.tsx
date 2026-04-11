@@ -3,6 +3,7 @@ import { ShoppingBag } from "lucide-react";
 import { SanityDocument } from "next-sanity";
 import Image from "next/image";
 import Link from "next/link";
+import Template from "@/typed/Template";
 
 
 
@@ -27,7 +28,7 @@ export async function generateStaticParams() {
 
 export default async function TemplateSingle({ params }: { params: Promise<{ slug: string }> }) {
 
-  const t = await client.fetch<SanityDocument>(
+  const t = await client.fetch<Template>(
   POSTS_QUERY,
   { slug: (await params).slug },
   options
@@ -130,7 +131,13 @@ export default async function TemplateSingle({ params }: { params: Promise<{ slu
                     className="h-52 flex items-center justify-center border-b border-white/[0.07]"
                     style={{ background: t.bg }}
                   >
-                    <Image className="object-cover" src={t.featuredImage?.asset?.url} alt={t.name} width={800} height={400} />
+                    {
+                      t.featuredImage ? (
+                        <Image className="object-cover" src={t.featuredImage?.asset?.url || ""} alt={t.name} width={800} height={400} />
+                      ) : (
+                        <div className="text-6xl">{t.accent}</div>
+                      )
+                    }
                   </div>
 
                   {/* Body */}
@@ -184,7 +191,7 @@ export default async function TemplateSingle({ params }: { params: Promise<{ slu
                     <div className="my-5 h-px bg-white/[0.07]" />
 
                     <div className="flex flex-col gap-2.5">
-                      {t.stack.map((s) => (
+                      {t.stack?.map((s) => (
                         <div
                           key={s}
                           className="flex items-center gap-3 text-sm text-muted font-body"
