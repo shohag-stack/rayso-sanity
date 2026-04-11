@@ -1,6 +1,6 @@
 import {client} from "@/sanity/client";
-import { SanityDocument } from "next-sanity";
 import TemplatesClients from "@/components/TemplatesClient";
+import Template from "@/typed/Template";
 
 const POSTS_QUERY = `*[
   _type == "template"
@@ -25,7 +25,7 @@ const options = { next: { revalidate: 30 } };
 
 export default async function TemplatesPage() {
 
-  const templates = await client.fetch<SanityDocument[]>(POSTS_QUERY, {}, options);
+  const templates = await client.fetch<Template[]>(POSTS_QUERY, {}, options);
 
 
   console.log("Fetched templates:", templates);
