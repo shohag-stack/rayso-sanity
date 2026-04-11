@@ -6,6 +6,7 @@ type Template = {
   badge: string;
   desc: string;
   bg: string;
+  categories: string[];
   accent: string;
   stats: { num: string; label: string }[];
   stack?: string[];

@@ -14,14 +14,13 @@ const filters = [
   { label: "Home Services", value: "home-services" },
   { label: "Mortgage", value: "mortgage" },
   { label: "Next.js", value: "nextjs" },
-  { label: "Astro", value: "astro" },
 ];
 
 export default function TemplatesClients({templates}: {templates: Template[]}) {
   const [active, setActive] = useState("all");
 
 const filtered = templates.filter(
-  (t) => active === "all" || t.tags?.includes(active)
+  (t) => active === "all" || t.categories?.includes(active)
 );
 
   return (

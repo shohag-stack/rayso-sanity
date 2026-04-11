@@ -19,6 +19,7 @@ const POSTS_QUERY = `*[
   tags,
   stack,
   badge,
+  categories,
   slug
 } `;
 const options = { next: { revalidate: 30 } };
