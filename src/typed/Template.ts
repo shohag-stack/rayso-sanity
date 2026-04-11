@@ -1,4 +1,6 @@
 type Template = {
+  _id: string;
+  url: string;
   name: string;
   price: string;
   badge: string;
@@ -12,6 +14,10 @@ type Template = {
     asset?: {
       url: string;
     };
+  };
+  tags?: string[];
+  slug: {
+    current: string;
   };
 };
 

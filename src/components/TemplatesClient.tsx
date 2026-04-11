@@ -3,6 +3,7 @@ import { useState } from "react";
 import { SanityDocument } from "next-sanity";
 import CtaNormal from "./section/CtaNormal";
 import ProductCard from "./ProductCard";
+import Template from "@/typed/Template";
 
 
 const filters = [
@@ -16,7 +17,7 @@ const filters = [
   { label: "Astro", value: "astro" },
 ];
 
-export default function TemplatesClients({templates}: {templates: SanityDocument[]}) {
+export default function TemplatesClients({templates}: {templates: Template[]}) {
   const [active, setActive] = useState("all");
 
 const filtered = templates.filter(

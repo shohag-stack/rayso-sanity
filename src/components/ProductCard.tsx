@@ -1,31 +1,11 @@
+import Template from "@/typed/Template";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-
-export interface Template {
-  id: string;
-  name: string;
-  slug: {
-    current: string;
-  };
-  featuredImage: {
-    asset: {
-      id: string;
-      url: string;
-    };
-  };
-  desc: string;
-  price: string;
-  tags: string[];
-  stack: string[];
-  badge: string;
-  url: string
-}
 
 export default function ProductCard({ t }: { t: Template }) {
   return (
     <div
-      key={t.id}
+      key={t._id}
       className="group border border-white/[0.07] rounded-xl overflow-hidden bg-bg-2 hover:-translate-y-1 transition-all duration-200 block"
     >
       {/* Preview */}
@@ -36,7 +16,15 @@ export default function ProductCard({ t }: { t: Template }) {
           href={`/templates/${t.slug.current}`}
           className="block"
         >
-          <Image className="object-cover" src={t.featuredImage?.asset?.url} alt={t.name} width={800} height={400} />
+          {
+            t.featuredImage ? (
+              <Image className="object-cover" src={t.featuredImage?.asset?.url || ""} alt={t.name} width={800} height={400} />
+            ) : (
+              <div className="h-52 flex items-center justify-center border-b border-white/[0.07]" style={{ background: t.bg }}>
+                <div className="text-6xl">{t.accent}</div>
+              </div>
+            )
+          }
         </Link>
         {/* Overlay */}
         <Link className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-20 transition-opacity duration-200 flex items-center justify-center gap-3" href={`/templates/${t.slug.current}`}>
