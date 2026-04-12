@@ -3,6 +3,8 @@ type Template = {
   url: string;
   name: string;
   price: string;
+  purchaseLink?: string;
+  liveLink?: string;
   badge: string;
   desc: string;
   bg: string;

@@ -139,7 +139,7 @@ export default async function TemplateSingle({
 
                 <div className="flex gap-3 flex-wrap mb-10">
                   <Link
-                    href="#"
+                    href={t.purchaseLink || "#"}
                     className="inline-flex items-center gap-2 px-7 py-4 rounded-full bg-acid text-black font-display font-bold text-[13px] tracking-[0.05em] uppercase hover:bg-text-primary hover:text-bg transition-colors duration-200"
                   >
                     {t.badge === "free" ? (
@@ -151,7 +151,7 @@ export default async function TemplateSingle({
                     )}
                   </Link>
                   <Link
-                    href="#"
+                    href={t.liveLink || "#"}
                     className="inline-flex items-center gap-2 px-7 py-4 rounded-full border border-acid-border text-acid font-display font-semibold text-[13px] tracking-[0.05em] uppercase hover:bg-acid hover:text-black transition-all duration-200"
                   >
                     Live Preview ↗
