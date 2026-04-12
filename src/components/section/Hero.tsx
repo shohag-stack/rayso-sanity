@@ -49,7 +49,7 @@ export default function Hero() {
   <div className="container mx-auto min-h-screen flex items-center">
 
     {/* LEFT CONTENT */}
-    <div className="w-full lg:w-8/12 flex flex-col justify-center px-6 md:px-12 pt-32 pb-16">
+    <div className="w-full lg:w-8/12 flex flex-col justify-center px-6 pt-32 pb-16">
 
       <div className="flex items-center gap-4 mb-8">
         <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-acid-dim border border-acid-border text-sm font-bold font-body tracking-[0.1em] uppercase text-acid">

@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import ThemeToggle from "./ThemeToggle";
 import { useTheme } from "./ThemeProvider";
+import Logo from "./Logo";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -31,12 +31,8 @@ export default function Navbar() {
       `}
     >
       {/* Logo */}
-      <Link
-        href="/"
-        className="font-display font-bold text-lg tracking-tight"
-        style={{ color: "var(--text-primary)" }}
-      >
-        rayso<span className="text-acid">.</span>studio
+      <Link href="/" className="text-[var(--text-primary)]">
+        <Logo className="w-[120px] h-auto fill-current text-[var(--text-primary)]" />
       </Link>
 
       {/* Center links */}

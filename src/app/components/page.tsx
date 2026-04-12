@@ -463,7 +463,7 @@ const categories = useMemo(() => {
               Free Component Library
             </div>
             <h1
-              className="font-display font-black text-6xl leading-[0.96] tracking-[-0.04em] mb-4"
+              className="font-display font-bold text-6xl leading-[0.96] tracking-[-0.04em] mb-4"
               style={{ color: "var(--text-primary)" }}
             >
               Copy. Paste.{" "}
