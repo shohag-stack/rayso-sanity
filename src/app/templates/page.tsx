@@ -18,6 +18,7 @@ const POSTS_QUERY = `*[
   price,
   tags,
   stack,
+  status,
   badge,
   categories,
   slug

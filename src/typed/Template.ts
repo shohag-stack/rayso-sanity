@@ -30,6 +30,7 @@ type Template = {
     current: string;
   };
   _updatedAt: string;
+  status: string;
 };
 
 export default Template;

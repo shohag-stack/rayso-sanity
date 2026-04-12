@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
+import Logo from "./Logo";
 
 const footerCols = [
   {
@@ -50,7 +51,9 @@ export default function Footer() {
               className="font-display font-bold text-xl tracking-tight mb-4"
               style={{ color: "var(--text-primary)" }}
             >
-              rayso<span className="text-acid">.</span>studio
+              <Link href="/" className="text-[var(--text-primary)]">
+                <Logo className="w-[120px] h-auto fill-current text-[var(--text-primary)]" />
+              </Link>
             </div>
             <p
               className="text-md leading-relaxed max-w-[280px] mb-7 font-body"

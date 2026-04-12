@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | rayso.studio",
   },
   description:
-    "rayso.studio builds high-converting websites for real estate agents, mortgage brokers, plumbers, and home service businesses. Framer, Webflow, custom Next.js dev, and Sanity CMS.",
+    "rayso builds high-converting websites for real estate agents, mortgage brokers, plumbers, and home service businesses. Framer, Webflow, custom Next.js dev, and Sanity CMS.",
   keywords: [
     "web design agency",
     "real estate website design",
@@ -38,6 +38,9 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "rayso.studio",
   },
+  icons: {
+    icon: "/favicon.ico",
+  }
 };
 
 export default function RootLayout({
