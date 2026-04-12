@@ -3,7 +3,7 @@ import React from "react";
 export default function AboutHero() {
   return (
     <section
-      className="relative pt-36 pb-24 px-8 md:px-12 border-b overflow-hidden"
+      className="relative pt-36 pb-24 px-8 md:px-12 bg-gradient-to-tr from-bg via-bg to-acid overflow-hidden"
       style={{ borderColor: "var(--border-color)" }}
     >
       <div className="absolute -top-48 -right-24 w-[500px] h-[500px] rounded-full bg-acid opacity-[0.05] blur-[120px] pointer-events-none" />

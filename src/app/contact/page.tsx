@@ -14,9 +14,8 @@ export default function ContactPage() {
     <>
       <main>
         <section
-          className="pt-36 pb-20 px-8 md:px-12 border-b"
+          className="pt-36 pb-20 px-8 md:px-12 bg-gradient-to-tr from-bg via-bg to-acid bg-[length:200%_200%] animate-gradient-move"
           style={{
-            background: "var(--bg-2)",
             borderColor: "var(--border-color)",
           }}
         >
