@@ -3,6 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function ProductCard({ t }: { t: Template }) {
+
+
+  const stack = ['Nextjs', "Tailwind", "Sanity"];
+
+
+
   return (
     <div
       key={t._id}
@@ -44,7 +50,7 @@ export default function ProductCard({ t }: { t: Template }) {
           >
             {t.badge === "free" ? "Free" : "Premium"}
           </span> */}
-                    {t.stack?.map((s) => (
+                    {stack?.map((s) => (
             <span
               key={s}
               className="px-2.5 py-1 text-xs font-mediu border-acid-dim border rounded-full"

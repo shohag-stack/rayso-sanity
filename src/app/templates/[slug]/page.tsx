@@ -4,16 +4,62 @@ import { SanityDocument } from "next-sanity";
 import Image from "next/image";
 import Link from "next/link";
 import Template from "@/typed/Template";
+import CommonFeatures from "@/components/section/CommonFeatures";
+import RecentTemplates from "@/components/section/RecentTemplates";
+import CTABanner from "@/components/section/CTABanner";
+import HowToStarted from "@/components/section/HowToStarted";
+import QuickSetup from "@/components/section/QuickSetup";
 
+const coreFeatures = [
+  {
+    icon: "/assets/img/nextjs.png",
+    value: "Next.js App Router",
+  },
 
+  {
+    icon: "/assets/img/sanity.png",
+    value: "Sanity CMS",
+  },
+  {
+    icon: "/assets/img/tailwind.png",
+    value: "Tailwind CSS",
+  },
+  {
+    icon: "/assets/img/typscript.png",
+    value: "TypeScript",
+  },
+];
 
 const POSTS_QUERY = `*[_type == "template" && slug.current == $slug][0]{
-...,
-featuredImage{
-asset->{
-url
+    ...,
+  featuredImage {
+    asset->{
+      url
+     }
+  },
+    gallery[]{
+      asset->{
+      url
+    }
+}}`;
+
+
+const RECENT_TEMPLATES_QUERY = `
+*[_type == "template" && slug.current != $slug] 
+| order(_createdAt desc)[0...3] {
+  _id,
+  name,
+  slug,
+  price,
+  badge,
+  featuredImage{
+    asset->{
+      url
+    }
+  }
 }
-}}`
+`;
+
 const options = { next: { revalidate: 30 } };
 
 export async function generateStaticParams() {
@@ -26,14 +72,26 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function TemplateSingle({ params }: { params: Promise<{ slug: string }> }) {
-
+export default async function TemplateSingle({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const t = await client.fetch<Template>(
-  POSTS_QUERY,
-  { slug: (await params).slug },
-  options
-);
+    POSTS_QUERY,
+    { slug: (await params).slug },
+    options,
+  );
 
+
+
+  const recent = await client.fetch(
+      RECENT_TEMPLATES_QUERY,
+      { slug: (await params).slug },
+      options
+    );
+
+  console.log("Fetched template:", t);
 
   return (
     <>
@@ -53,8 +111,6 @@ export default async function TemplateSingle({ params }: { params: Promise<{ slu
               <span className="text-primary">{t.name}</span>
             </div>
 
-            
-
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-16 items-start">
               {/* Left */}
               <div className="pb-16">
@@ -65,7 +121,11 @@ export default async function TemplateSingle({ params }: { params: Promise<{ slu
                     {t.badge === "free" ? "Free" : "Premium"}
                   </span>
                   <span className="px-3 py-1 rounded-full text-xs font-body uppercase tracking-wider border border-acid-dim text-mid bg-white/[0.05]">
-                    Updated Jan 2025
+                    Updated{" "}
+                    {new Date(t._updatedAt).toLocaleDateString(undefined, {
+                      month: "short",
+                      year: "numeric",
+                    })}
                   </span>
                 </div>
 
@@ -73,7 +133,7 @@ export default async function TemplateSingle({ params }: { params: Promise<{ slu
                   {t.name}
                 </h1>
 
-                <p className="text-muted text-[15px] font-body leading-[1.8] mb-8">
+                <p className="text-muted text-xl font-medium font-body leading-[1.8] mb-8">
                   {t.desc}
                 </p>
 
@@ -116,10 +176,19 @@ export default async function TemplateSingle({ params }: { params: Promise<{ slu
                 </div>
                 {/* Gallery placeholder */}
                 <div className="gallery grid grid-cols-1 md:grid-cols-2 gap-4 mt-12">
-                  <div className="w-full h-[300px] bg-acid"> </div>
-                  <div className="w-full h-[300px] bg-acid"> </div>
-                  <div className="w-full h-[300px] bg-acid"> </div>
-                  <div className="w-full h-[300px] bg-acid"> </div>
+                  {t.gallery?.map((g, i) => (
+                    <div
+                      key={i}
+                      className="w-full h-64 relative rounded-lg overflow-hidden border border-white/[0.07]"
+                    >
+                      <Image
+                        src={g.asset?.url || ""}
+                        alt={`${t.name} screenshot ${i + 1}`}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  ))}
                 </div>
               </div>
 
@@ -131,13 +200,17 @@ export default async function TemplateSingle({ params }: { params: Promise<{ slu
                     className="h-52 flex items-center justify-center border-b border-white/[0.07]"
                     style={{ background: t.bg }}
                   >
-                    {
-                      t.featuredImage ? (
-                        <Image className="object-cover" src={t.featuredImage?.asset?.url || ""} alt={t.name} width={800} height={400} />
-                      ) : (
-                        <div className="text-6xl">{t.accent}</div>
-                      )
-                    }
+                    {t.featuredImage ? (
+                      <Image
+                        className="object-cover"
+                        src={t.featuredImage?.asset?.url || ""}
+                        alt={t.name}
+                        width={800}
+                        height={400}
+                      />
+                    ) : (
+                      <div className="text-6xl">{t.accent}</div>
+                    )}
                   </div>
 
                   {/* Body */}
@@ -191,15 +264,13 @@ export default async function TemplateSingle({ params }: { params: Promise<{ slu
                     <div className="my-5 h-px bg-white/[0.07]" />
 
                     <div className="flex flex-col gap-2.5">
-                      {t.stack?.map((s) => (
+                      {coreFeatures.map((s,i) => (
                         <div
-                          key={s}
+                          key={i+1}
                           className="flex items-center gap-3 text-sm text-muted font-body"
                         >
-                          <div className="w-7 h-7 rounded-lg bg-bg-4 border border-white/[0.07] flex items-center justify-center text-xs">
-                            ▲
-                          </div>
-                          {s}
+                          <Image className="w-7 h-7 rounded-lg bg-bg-4 border border-white/[0.07] flex items-center justify-center text-xs" src={s.icon} alt={s.value} width={24} height={24}/>
+                          {s.value}
                         </div>
                       ))}
                     </div>
@@ -246,134 +317,14 @@ export default async function TemplateSingle({ params }: { params: Promise<{ slu
           </div>
         </section>
 
-        {/* Quick setup */}
-        <section className="py-24 px-8 md:px-12">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-              <div>
-                <div className="flex items-center gap-2 text-xs font-body tracking-[0.18em] uppercase text-acid mb-5">
-                  <span className="w-5 h-px bg-acid" />
-                  Quick Setup
-                </div>
-                <h2 className="font-display font-bold text-5xl tracking-[-0.02em] mb-4">
-                  Live in under{" "}
-                  <span className="font-serif italic font-normal text-acid">
-                    30 minutes
-                  </span>
-                </h2>
-                <p className="text-muted tex-base font-body leading-[1.8] mb-8">
-                  Full documentation included. Step-by-step setup guide from
-                  clone to deployed.
-                </p>
-                <Link
-                  href="#"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-acid-border text-acid font-display font-semibold text-[12px] tracking-[0.05em] uppercase hover:bg-acid hover:text-black transition-all duration-200"
-                >
-                  Read Documentation →
-                </Link>
-              </div>
-              <div className="border border-white/[0.07] rounded-xl overflow-hidden">
-                {[
-                  {
-                    step: "1. Clone the repo",
-                    code: "git clone rayso.studio/template",
-                    accent: true,
-                  },
-                  {
-                    step: "2. Install dependencies",
-                    code: "npm install",
-                    accent: false,
-                  },
-                  {
-                    step: "3. Configure environment",
-                    code: "cp .env.example .env.local",
-                    accent: false,
-                  },
-                  { step: "4. Run locally", code: "npm run dev", accent: true },
-                ].map(({ step, code, accent }, i) => (
-                  <div
-                    key={i}
-                    className="px-6 py-5 bg-bg-2 border-b border-border last:border-0"
-                  >
-                    <div className="text-sm text-muted font-body mb-2 uppercase tracking-wider">
-                      {step}
-                    </div>
-                    <code
-                      className={`font-body text-[13px] ${accent ? "text-acid" : "text-mid"}`}
-                    >
-                      {code}
-                    </code>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+        <CommonFeatures />
+        <QuickSetup />
 
         {/* More templates */}
-        <section className="py-20 px-8 md:px-12 border-t border-white/[0.07] bg-bg-2">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex justify-between items-center mb-10">
-              <h2 className="font-display font-bold text-[clamp(24px,2.5vw,36px)] tracking-[-0.02em]">
-                More Templates
-              </h2>
-              <Link
-                href="/templates"
-                className="inline-flex items-center gap-2 px-7 py-4 rounded-full border border-acid-border text-acid font-display font-semibold text-[13px] tracking-[0.05em] uppercase hover:bg-acid hover:text-black transition-all duration-200"
-              >
-                Browse All →
-              </Link>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {[
-                {
-                  name: "Plumbr Emergency",
-                  emoji: "🔧",
-                  price: "Free",
-                  bg: "#0f1923",
-                },
-                {
-                  name: "MortgageFlow",
-                  emoji: "💰",
-                  price: "$79",
-                  bg: "#0d1117",
-                },
-                {
-                  name: "CleanBook Pro",
-                  emoji: "🧹",
-                  price: "$69",
-                  bg: "#faf5ff",
-                },
-              ].map((m) => (
-                <Link
-                  href="/templates"
-                  key={m.name}
-                  className="group border border-border rounded-xl overflow-hidden hover:border-acid-border transition-all duration-200"
-                >
-                  <div
-                    className="h-64 flex items-center justify-center text-4xl"
-                    style={{ background: m.bg }}
-                  >
-                    {m.emoji}
-                  </div>
-                  <div className="p-5 bg-bg-2">
-                    <div className="font-display font-bold text-xl text-text-primary mb-1">
-                      {m.name}
-                    </div>
-                    <div className="text-sm text-muted font-body mb-3">
-                      Sanity Template
-                    </div>
-                    <span
-                      className={`px-3 py-1 rounded-full text-sm font-body uppercase tracking-wider border ${m.price === "Free" ? "bg-acid-dim text-acid border-acid-border" : "bg-bg-2 text-mid border-border"}`}
-                    >
-                      {m.price}
-                    </span>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
+        {
+          recent && recent.length > 0 && <RecentTemplates templates={recent} />
+        }
+        <CTABanner />
       </main>
     </>
   );

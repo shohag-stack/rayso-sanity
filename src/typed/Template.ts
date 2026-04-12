@@ -16,10 +16,18 @@ type Template = {
       url: string;
     };
   };
+
+  gallery?: {
+    asset?: {
+      url: string;
+    };
+  }[];
+
   tags?: string[];
   slug: {
     current: string;
   };
+  _updatedAt: string;
 };
 
 export default Template;

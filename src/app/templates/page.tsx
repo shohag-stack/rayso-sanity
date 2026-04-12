@@ -28,10 +28,6 @@ export default async function TemplatesPage() {
 
   const templates = await client.fetch<Template[]>(POSTS_QUERY, {}, options);
 
-
-  console.log("Fetched templates:", templates);
-
-
   return (
     <>
       <TemplatesClients templates={templates} />
